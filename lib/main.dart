@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'pages/view_page.dart';
+import 'package:our_quest/pages/upload_page.dart';
+import 'package:our_quest/pages/view_page.dart';
 
 void main() {
-  runApp(const OurQuest());
+  runApp(const TabBarDemo());
 }
 
-class OurQuest extends StatelessWidget {
-  const OurQuest({Key? key}) : super(key: key);
+class TabBarDemo extends StatelessWidget {
+  const TabBarDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,28 +16,22 @@ class OurQuest extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            toolbarHeight: 24,
             backgroundColor: Colors.deepPurple,
+            toolbarHeight: 20,
             centerTitle: true,
-            title: const Text("Sean & Shizuka"),
-            bottom: const TabBar(tabs: [
-              Tab(
-                icon: Icon(Icons.upload),
-              ),
-              Tab(
-                icon: Icon(Icons.photo),
-              )
-            ]),
+            bottom: const TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.upload_file)),
+                Tab(icon: Icon(Icons.photo_album)),
+              ],
+            ),
+            title: const Text('Our Quest'),
           ),
           body: const TabBarView(
             children: [
-              ViewPage(),
+              UploadPage(),
               ViewPage(),
             ],
-          ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: null,
-            child: Icon(Icons.remove_red_eye),
           ),
         ),
       ),
